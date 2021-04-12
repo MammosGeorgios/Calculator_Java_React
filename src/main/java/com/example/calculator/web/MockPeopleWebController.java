@@ -2,12 +2,13 @@ package com.example.calculator.web;
 
 import com.example.calculator.db.entity.MockPerson;
 import com.example.calculator.service.impl.MockPersonServiceImpl;
+import com.example.calculator.temp.MockPersonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -43,7 +44,16 @@ public class MockPeopleWebController {
             model.addAttribute("mockPeople",mockPeople);
         }
 
+        // adding the form model
+        model.addAttribute("mockPersonView", new MockPersonView());
+        return "mockpeople";
+    }
 
+
+    @PostMapping
+    public String postMockPeople(@ModelAttribute MockPersonView mockPersonView, Model model){
+        String message = "New Person Added is: Name: " + mockPersonView.getName() + " , Age: "+ mockPersonView.getAge();
+        model.addAttribute("newPersonMessage", message);
         return "mockpeople";
     }
 
