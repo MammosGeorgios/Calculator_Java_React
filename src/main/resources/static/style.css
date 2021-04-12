@@ -1,0 +1,36 @@
+*{
+    text-align:center;
+}
+#header{
+    width:100%;
+    border:black solid 2px;
+}
+#main{
+    width:100%;
+    border:black solid 2px;
+}
+#footer{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+
+    border:black solid 2px;
+}
+#calculatorContainer{
+    height:500px;
+    width:500px;
+    margin:auto;
+
+    border:red 1px solid;
+}
+#calculatorDisplay{
+    height:50px;
+    background-color: black;
+    color:white;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
