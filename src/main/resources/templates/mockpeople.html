@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr th:each="mockperson:${mockPeople}">
+        <td th:text="${mockperson.id}">id</td>
+        <td th:text="${mockperson.name}">name</td>
+        <td th:text="${mockperson.age}">age</td>
+    </tr>
+</table>
+<hr>
+<a href="index.html">Back to index</a>
+</body>
+</html>
