@@ -7,4 +7,5 @@ import java.util.List;
 public interface MockPersonService {
 
     List<MockPerson> getAll();
+    List<MockPerson> getByAge(Long age);
 }

@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface MockPersonRepository extends JpaRepository<MockPerson,Long> {
 
-    //List<MockPerson> getAllByAge();
+    List<MockPerson> getAllByAge(Long age);
 }

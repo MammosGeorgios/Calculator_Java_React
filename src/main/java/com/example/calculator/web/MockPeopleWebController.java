@@ -22,10 +22,28 @@ public class MockPeopleWebController {
         this.mockPersonServiceImpl = mockPersonServiceImpl;
     }
 
+//    @GetMapping
+//    public String getMockPeople(Model model){
+//        List<MockPerson> mockPeople = this.mockPersonServiceImpl.getAll();
+//        model.addAttribute("mockPeople",mockPeople);
+//        return "mockpeople";
+//    }
+
     @GetMapping
-    public String getMockPeople(Model model){
-        List<MockPerson> mockPeople = this.mockPersonServiceImpl.getAll();
-        model.addAttribute("mockPeople",mockPeople);
+    public String getMockPeople(@RequestParam(value="age",required=false) Long age, Model model){
+        List<MockPerson> mockPeople= null;
+        if(age==null){
+            mockPeople = this.mockPersonServiceImpl.getAll();
+        }else{
+            mockPeople = this.mockPersonServiceImpl.getByAge(age);
+        }
+
+        // if no result to show i return nothing. This allows me ot check for null with thymeleaf and make the view accordingly
+        if(!mockPeople.isEmpty()){
+            model.addAttribute("mockPeople",mockPeople);
+        }
+
+
         return "mockpeople";
     }
 

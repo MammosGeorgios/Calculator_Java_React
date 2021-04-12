@@ -24,4 +24,10 @@ public class MockPersonServiceImpl implements MockPersonService {
         List<MockPerson> mockPeople = this.mockPersonRepository.findAll();
         return mockPeople;
     }
+
+    @Override
+    public List<MockPerson> getByAge(Long age) {
+        List<MockPerson> mockPeople = this.mockPersonRepository.getAllByAge(age);
+        return mockPeople;
+    }
 }
