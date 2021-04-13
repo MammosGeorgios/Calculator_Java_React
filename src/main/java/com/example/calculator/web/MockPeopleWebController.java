@@ -30,16 +30,16 @@ public class MockPeopleWebController {
 
     @GetMapping
     public String getMockPeople(@RequestParam(value="age",required=false) Long age, Model model){
-        List<MockPerson> mockPeople= null;
+        List<MockPersonDTO> mockPeopleDTO= null;
         if(age==null){
-            mockPeople = this.mockPersonServiceImpl.getAll();
+            mockPeopleDTO = this.mockPersonServiceImpl.getAll();
         }else{
-            mockPeople = this.mockPersonServiceImpl.getByAge(age);
+            mockPeopleDTO = this.mockPersonServiceImpl.getByAge(age);
         }
 
         // if no result to show i return nothing. This allows me ot check for null with thymeleaf and make the view accordingly
-        if(!mockPeople.isEmpty()){
-            model.addAttribute("mockPeople",mockPeople);
+        if(!mockPeopleDTO.isEmpty()){
+            model.addAttribute("mockPeople",mockPeopleDTO);
         }
 
         // adding the form model

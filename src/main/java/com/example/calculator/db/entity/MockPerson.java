@@ -47,4 +47,10 @@ public class MockPerson {
         this.name=name;
         this.age=age;
     }
+
+    public MockPerson(Long id, String name, Long age){
+        this.id=id;
+        this.name=name;
+        this.age=age;
+    }
 }
