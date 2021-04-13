@@ -24,25 +24,25 @@
 
 <div id="main">
     <div id="calculatorContainer">
-        <div id="calculatorDisplay">Here we show what's happening/results/numbers</div>
+        <div id="calculatorDisplay">0</div>
         <div id="calculatorButtonsContainer">
-            <button class="calculatorButton" id="clearButton">C</button>
-            <button class="calculatorButton" id="divideButton">/</button>
-            <button class="calculatorButton" id="multiplyButton">*</button>
-            <button class="calculatorButton" id="subtractButton">-</button>
-            <button class="calculatorButton" id="n7Button">7</button>
-            <button class="calculatorButton" id="n8Button">8</button>
-            <button class="calculatorButton" id="n9Button">9</button>
-            <button class="calculatorButton" id="addButton">+</button>
-            <button class="calculatorButton" id="n4Button">4</button>
-            <button class="calculatorButton" id="n5Button">5</button>
-            <button class="calculatorButton" id="n6Button">6</button>
-            <button class="calculatorButton" id="n1Button">1</button>
-            <button class="calculatorButton" id="n2Button">2</button>
-            <button class="calculatorButton" id="n3Button">3</button>
-            <button class="calculatorButton" id="equalsButton">=</button>
-            <button class="calculatorButton" id="n0Button">0</button>
-            <button class="calculatorButton" id="decimalButton">.</button>
+            <button class="calculatorButton" id="clearButton" onclick="buttonPress('clearButton')">C</button>
+            <button class="calculatorButton" id="divideButton" onclick="buttonPress('divideButton')">/</button>
+            <button class="calculatorButton" id="multiplyButton" onclick="buttonPress('multiplyButton')">*</button>
+            <button class="calculatorButton" id="subtractButton" onclick="buttonPress('subtractButton')">-</button>
+            <button class="calculatorButton" id="n7Button" onclick="buttonPress('7')">7</button>
+            <button class="calculatorButton" id="n8Button" onclick="buttonPress('8')">8</button>
+            <button class="calculatorButton" id="n9Button" onclick="buttonPress('9')">9</button>
+            <button class="calculatorButton" id="addButton" onclick="buttonPress('addButton')">+</button>
+            <button class="calculatorButton" id="n4Button" onclick="buttonPress('4')">4</button>
+            <button class="calculatorButton" id="n5Button" onclick="buttonPress('5')">5</button>
+            <button class="calculatorButton" id="n6Button" onclick="buttonPress('6')">6</button>
+            <button class="calculatorButton" id="n1Button" onclick="buttonPress('1')">1</button>
+            <button class="calculatorButton" id="n2Button" onclick="buttonPress('2')">2</button>
+            <button class="calculatorButton" id="n3Button" onclick="buttonPress('3')">3</button>
+            <button class="calculatorButton" id="equalsButton" onclick="buttonPress('equalsButton')">=</button>
+            <button class="calculatorButton" id="n0Button" onclick="buttonPress('0')">0</button>
+            <button class="calculatorButton" id="decimalButton" onclick="buttonPress('decimalButton')">.</button>
 
         </div>
     </div>
@@ -53,5 +53,7 @@
     <a href="/mockpeople">MockPeople experiments</a>
 
 </div>
+
+<script type="text/javascript" src="./js/calculator.js"></script>
 </body>
 </html>

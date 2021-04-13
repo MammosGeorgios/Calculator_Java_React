@@ -43,7 +43,7 @@ public class MockPeopleWebController {
         }
 
         // adding the form model
-        model.addAttribute("mockPersonView", new MockPersonDTO());
+        model.addAttribute("mockPersonDTO", new MockPersonDTO());
         return "mockpeople";
     }
 
