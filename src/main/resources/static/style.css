@@ -1,6 +1,7 @@
 *{
     text-align:center;
 }
+
 #header{
     width:100%;
     border:black solid 2px;
@@ -25,7 +26,7 @@
     border:red 1px solid;
 }
 #calculatorDisplay{
-    height:50px;
+    height:20%;
     background-color: black;
     color:white;
 
@@ -33,4 +34,61 @@
     justify-content: flex-end;
     align-items: flex-end;
 
+}
+#calculatorButtonsContainer{
+    display: grid;
+    grid-template-columns: [col0]25% [col1]25% [col2]25% [col3]25% [colEnd];
+    grid-template-rows: [row0]20% [row1]20% [row2]20% [row3]20% [row4] 20%[rowEnd];
+    grid-template-areas:
+        "clearButton divideButton multiplyButton subtractButton"
+        "n7 n8 n9 addButton"
+        "n4 n5 n6 addButton"
+        "n1 n2 n3 equalsButton"
+        "n0 n0 decimalButton equalsButton";
+    height:80%;
+}
+.calculatorButton{
+    margin:1px;
+}
+#clearButton{
+    grid-area: clearButton;
+}
+#divideButton{
+    grid-area: divideButton;
+}
+#multiplyButton{
+    grid-area:multiplyButton;
+}
+#subtractButton{
+    grid-area: subtractButton;
+}
+#addButton{
+    grid-area: addButton;
+}
+#equalsButton{
+    grid-area: equalsButton;
+}
+#decimalButton{
+    grid-area: decimalButton;
+}
+#n9Button{
+    grid-area: n9;
+}#n8Button{
+    grid-area: n8;
+}#n7Button{
+    grid-area: n7;
+}#n6Button{
+    grid-area: n6;
+}#n5Button{
+    grid-area: n5;
+}#n4Button{
+    grid-area: n4;
+}#n3Button{
+    grid-area: n3;
+}#n2Button{
+    grid-area: n2;
+}#n1Button{
+    grid-area: n1;
+}#n0Button{
+    grid-area: n0;
 }

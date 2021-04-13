@@ -1,6 +1,6 @@
-package com.example.calculator.temp;
+package com.example.calculator.model;
 
-public class MockPersonView {
+public class MockPersonDTO {
 
     private String name;
     private Long age;

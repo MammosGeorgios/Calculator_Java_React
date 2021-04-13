@@ -24,7 +24,7 @@
 <hr>
 <!-- Form example -->
 
-<form action="#" th:action="@{/mockpeople}" th:object="${mockPersonView}" method="post">
+<form action="#" th:action="@{/mockpeople}" th:object="${mockPersonDTO}" method="post">
     Name:<input type="text" name="name" th:field="*{name}"></br>
     Age :<input type="number" name="age" th:field="*{age}"></br>
     <input type="submit">

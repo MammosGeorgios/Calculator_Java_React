@@ -3,7 +3,7 @@ package com.example.calculator.service.impl;
 import com.example.calculator.db.entity.MockPerson;
 import com.example.calculator.db.repositories.MockPersonRepository;
 import com.example.calculator.service.MockPersonService;
-import com.example.calculator.temp.MockPersonView;
+import com.example.calculator.model.MockPersonDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +15,10 @@ public class MockPersonServiceImpl implements MockPersonService {
     @Autowired
     MockPersonRepository mockPersonRepository;
 
-    @Autowired
-    public MockPersonServiceImpl(MockPersonRepository mockPersonRepository) {
-        this.mockPersonRepository = mockPersonRepository;
-    }
+//    @Autowired
+//    public MockPersonServiceImpl(MockPersonRepository mockPersonRepository) {
+//        this.mockPersonRepository = mockPersonRepository;
+//    }
 
     @Override
     public List<MockPerson> getAll() {
@@ -32,8 +32,14 @@ public class MockPersonServiceImpl implements MockPersonService {
         return mockPeople;
     }
 
+    // This should probably change to have the normal model as argument
     @Override
-    public void addNewMockPerson(MockPersonView mockPersonView) {
-        this.mockPersonRepository.save(new MockPerson(mockPersonView.getName(),mockPersonView.getAge()));
+    public void addNewMockPerson(MockPersonDTO mockPersonDTO) {
+        this.mockPersonRepository.save(new MockPerson(mockPersonDTO.getName(), mockPersonDTO.getAge()));
+    }
+
+    @Override
+    public void addNonDuplicateMockPerson(MockPersonDTO mockPersonDTO) {
+        // CHECK IF IT'S A DUPLICATE OR NOT
     }
 }
