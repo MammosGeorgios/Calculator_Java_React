@@ -52,6 +52,7 @@ public class MockPeopleWebController {
 
     @PostMapping
     public String postMockPeople(@ModelAttribute MockPersonView mockPersonView, Model model){
+        this.mockPersonServiceImpl.addNewMockPerson(mockPersonView);
         String message = "New Person Added is: Name: " + mockPersonView.getName() + " , Age: "+ mockPersonView.getAge();
         model.addAttribute("newPersonMessage", message);
         return "mockpeople";

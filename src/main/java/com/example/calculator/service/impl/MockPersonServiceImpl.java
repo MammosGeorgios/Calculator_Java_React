@@ -3,6 +3,7 @@ package com.example.calculator.service.impl;
 import com.example.calculator.db.entity.MockPerson;
 import com.example.calculator.db.repositories.MockPersonRepository;
 import com.example.calculator.service.MockPersonService;
+import com.example.calculator.temp.MockPersonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,10 @@ public class MockPersonServiceImpl implements MockPersonService {
     public List<MockPerson> getByAge(Long age) {
         List<MockPerson> mockPeople = this.mockPersonRepository.getAllByAge(age);
         return mockPeople;
+    }
+
+    @Override
+    public void addNewMockPerson(MockPersonView mockPersonView) {
+        this.mockPersonRepository.save(new MockPerson(mockPersonView.getName(),mockPersonView.getAge()));
     }
 }

@@ -40,4 +40,11 @@ public class MockPerson {
     public void setAge(Long age) {
         this.age = age;
     }
+
+    public MockPerson(){}
+
+    public MockPerson(String name, Long age){
+        this.name=name;
+        this.age=age;
+    }
 }
