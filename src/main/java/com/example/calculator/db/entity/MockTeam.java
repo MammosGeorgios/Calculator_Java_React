@@ -14,10 +14,10 @@ public class MockTeam {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name",nullable=true)
+    @Column(name="name",nullable=false)
     private String name;
 
-    @OneToMany(mappedBy = "id") // MUST BE THE PROPERTY OF THE LINKED CLASS!!!!
+    @OneToMany(mappedBy = "mockTeam") // MUST BE THE PROPERTY OF THE LINKED CLASS!!!!
     private Set<MockPerson> mockPeople;
 
     public Long getId() {

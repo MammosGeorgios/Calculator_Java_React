@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Showing all data, or data with a certain age -->
+<table th:if="${mockPeople!=null}">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Team</th>
+    </tr>
+    <tr th:each="mockPerson:${mockPeople}">
+        <td th:text="${mockPerson.id}">id</td>
+        <td th:text="${mockPerson.name}">name</td>
+        <td th:text="${mockPerson.age}">age</td>
+        <td th:text="${mockPerson.mockTeamName}">age</td>
+    </tr>
+</table>
+
+<div th:if="${mockPeople==null}" >  No results to show...</div>
+
+
+<a href="index.html">Back to index</a>
+</body>
+</html>

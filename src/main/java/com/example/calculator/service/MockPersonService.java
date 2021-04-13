@@ -11,4 +11,5 @@ public interface MockPersonService {
     List<MockPersonDTO> getByAge(Long age);
     void addNewMockPerson(MockPersonDTO mockPersonDTO);
     void addNonDuplicateMockPerson(MockPersonDTO mockPersonDTO);
+    List<MockPersonDTO> getAllWithTeams();
 }

@@ -45,4 +45,23 @@ public class MockPersonConverter {
         }
         return(mockPersonDTOList);
     }
+
+
+    // ADDED LATER FOR TESTING THE FOREIGN KEY FUNCTIONALITY
+    public static MockPersonDTO convertMockPersonEntityToDTOWithTeam(MockPerson mockPerson){
+        MockPersonDTO mockPersonDTO= new MockPersonDTO(mockPerson.getId() ,mockPerson.getName(), mockPerson.getAge(), mockPerson.getMockTeam().getName());
+        return mockPersonDTO;
+    }
+
+    public static List<MockPersonDTO> convertMockPersonEntityListToDTOWithTeam(List<MockPerson> MockPersonList) {
+
+        List<MockPersonDTO> mockPersonDTOList = new ArrayList<>();
+        for(MockPerson mockPerson:MockPersonList){
+            MockPersonDTO mockPersonDTO = MockPersonConverter.convertMockPersonEntityToDTOWithTeam(mockPerson);
+            mockPersonDTOList.add(mockPersonDTO);
+        }
+        return(mockPersonDTOList);
+    }
+
 }
+

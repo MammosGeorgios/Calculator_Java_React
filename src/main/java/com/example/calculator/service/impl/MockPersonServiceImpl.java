@@ -45,4 +45,11 @@ public class MockPersonServiceImpl implements MockPersonService {
     public void addNonDuplicateMockPerson(MockPersonDTO mockPersonDTO) {
         // CHECK IF IT'S A DUPLICATE OR NOT
     }
+
+    @Override
+    public List<MockPersonDTO> getAllWithTeams() {
+        List<MockPerson> mockPeople = this.mockPersonRepository.findAll();
+        List<MockPersonDTO> mockPeopleDTOList = MockPersonConverter.convertMockPersonEntityListToDTOWithTeam(mockPeople);
+        return mockPeopleDTOList;
+    }
 }

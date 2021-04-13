@@ -17,7 +17,7 @@ public class MockPerson {
     private Long age;
 
     @ManyToOne
-    @JoinColumn(name="teamid",nullable = true)
+    @JoinColumn(name="teamid",nullable = false)
     private MockTeam mockTeam;
 
 
@@ -65,4 +65,6 @@ public class MockPerson {
     public void setMockTeam(MockTeam mockTeam) {
         this.mockTeam = mockTeam;
     }
+
+
 }
