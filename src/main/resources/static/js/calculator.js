@@ -69,8 +69,8 @@ function operatorAction(action){
         setDisplay("0");
     }else if(action==="="){
         // MUST UPDATE ONCE BACKEND IS READY
-        console.log("Equals has been pressed! \n The math expression is:\n'" + $("#calculatorDisplay").html() +" = ?'");
-        setDisplay("0");
+        equalsAction();
+
     }else{
         addOperatorToDisplay(action);
     }
@@ -99,6 +99,39 @@ function addOperatorToDisplay(operator){
 
 function checkIfOperator(operator){
     return(operator==="*" || operator==="/" || operator==="+" || operator==="-");
+}
+
+function equalsAction(){
+    /*
+    We need to check
+    1) if there is an operator at the end without a number to follow it
+    2) there is at least one operator
+    Checking if there are operands is easy because we just need to check for spaces. every operator gets added with space on both sides
+     */
+    let currentDisplay = $("#calculatorDisplay").html();
+    let validExpression = false;
+    // console.log("Equals has been pressed! \n The math expression is:\n'" + $("#calculatorDisplay").html() +"'"); // FOR TESTING - REMOVE AFTER
+
+    if(currentDisplay[currentDisplay.length-1]==" "){
+        // this means we are ending with an operator without a number following it
+        // i will remove the last operator
+        currentDisplay = currentDisplay.substring(0, currentDisplay.length-4) ; // i remove the last 3 chars (-4 because of zero index)
+    }
+    if(!currentDisplay.includes(" ")) {
+        // if current display has zero spaces, it means that we have ZERO OPERATORS - remember each operators gets added with spaces on both sides
+        alert("Invalid Expression - No Operators \nPlease update.");
+    }else{
+        validExpression=true;
+    }
+    if(validExpression===true){
+        console.log("Final expression is:\n'" + currentDisplay+ "'");
+        setDisplay("0"); //resetting for easier testing, later on we will have better functionality here
+
+    }
+}
+
+function containsSpace(string){
+    return string.includes(" ");
 }
 
 function numberAction(number){
