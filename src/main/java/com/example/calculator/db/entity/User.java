@@ -16,7 +16,7 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user")
-    private Set<User> users;
+    private Set<Operation> operations;
 
     public String getName() {
         return name;
@@ -33,12 +33,15 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-    public Set<User> getUsers() {
-        return users;
+
+    public Set<Operation> getOperations() {
+        return operations;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setOperations(Set<Operation> operations) {
+        this.operations = operations;
     }
+
+
 
 }

@@ -67,10 +67,38 @@ function buttonPress(button){
 function operatorAction(action){
     if (action == "clear"){
         setDisplay("0");
+    }else if(action==="="){
+        // MUST UPDATE ONCE BACKEND IS READY
+        console.log("Equals has been pressed! \n The math expression is:\n'" + $("#calculatorDisplay").html() +" = ?'");
+        setDisplay("0");
     }else{
-        //TEMP
-        console.log("Action used: " + action);
+        addOperatorToDisplay(action);
     }
+}
+
+function addOperatorToDisplay(operator){
+    // NEED TO CHECK IF THERE IS ALREADY AN OPERATOR IN THE END
+    // SINCE OPERATORS ARE ADDED WITH SPACE BEFORE AND AFTER I JUST NEED TO CHECK IF THE SECOND TO LAST CHAR IS AN OPERATOR
+    // the check of at least 3 is because the minimum i can have is an expresion like '0 + '. It will be impossible to have an operator in just the first 3 chars
+    // in any other scenario i just add the operator at the end with spaces on both sides
+
+    let currentDisplay = $("#calculatorDisplay").html();
+    if(currentDisplay.length>3){
+        let secondLastChar = currentDisplay[currentDisplay.length - 2];
+        if(checkIfOperator(secondLastChar)===true){
+            // In this case i want to correct the display
+            currentDisplay = currentDisplay.substring(0, currentDisplay.length-2) + operator + " ";
+        }else{
+            currentDisplay = currentDisplay + " " + operator + " ";
+        }
+    }else{
+        currentDisplay = currentDisplay + " " + operator + " ";
+    }
+    setDisplay(currentDisplay);
+}
+
+function checkIfOperator(operator){
+    return(operator==="*" || operator==="/" || operator==="+" || operator==="-");
 }
 
 function numberAction(number){

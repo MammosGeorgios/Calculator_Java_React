@@ -1,7 +1,6 @@
 package com.example.calculator.db.entity;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name="operation")
@@ -16,7 +15,7 @@ public class Operation {
     private String operationString;
 
     @Column(name="result",nullable=false)
-    private BigDecimal result;
+    private String result;
 
     @ManyToOne
     @JoinColumn(name="userid",nullable=false)
@@ -38,11 +37,11 @@ public class Operation {
         this.operationString = operationString;
     }
 
-    public BigDecimal getResult() {
+    public String getResult() {
         return result;
     }
 
-    public void setResult(BigDecimal result) {
+    public void setResult(String result) {
         this.result = result;
     }
 
