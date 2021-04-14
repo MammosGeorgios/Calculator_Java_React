@@ -1,6 +1,7 @@
 package com.example.calculator.db.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="user")
@@ -13,6 +14,9 @@ public class User {
 
     @Column(name="name",nullable=false)
     private String name;
+
+    @OneToMany(mappedBy = "user")
+    private Set<User> users;
 
     public String getName() {
         return name;
@@ -28,6 +32,13 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
 }
