@@ -125,7 +125,13 @@ function equalsAction(){
     }
     if(validExpression===true){
         console.log("Final expression is:\n'" + currentDisplay+ "'");
-        setDisplay("0"); //resetting for easier testing, later on we will have better functionality here
+        //setDisplay("0"); //resetting for easier testing, later on we will have better functionality here
+
+
+        $.get( "http://localhost:8080/operation/'" + currentDisplay + "'", function( data ) {
+            $("#calculatorDisplay").html( data );
+        });
+
 
     }
 }
@@ -153,9 +159,8 @@ function decimalAction(){
 
 function decimalInputToDisplay(){
     let currentDisplay = $("#calculatorDisplay").html();
-
-    //NEED TO CHECK IF DISPLAY ALREADY HAS A DECIMAL POINTER
-    let hasPointer = currentDisplay.includes(".");
+    //NEED TO CHECK IF DISPLAY ALREADY HAS A DECIMAL POINTER AT THE END
+    let hasPointer = currentDisplay.charAt(currentDisplay.length-1)==".";
     if(hasPointer == false){
         setDisplay(currentDisplay +".");
     }

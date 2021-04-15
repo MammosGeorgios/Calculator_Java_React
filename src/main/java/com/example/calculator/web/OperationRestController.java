@@ -22,9 +22,8 @@ public class OperationRestController {
 
     @GetMapping("/operation/'{string}'")
     public String read(@PathVariable String string){
-        String testString ="1 + 2 + 3";
-        operationServiceImpl.saveResult(testString, userServiceImpl.getUserById(1L));
-            return operationServiceImpl.getResult(testString);
+        operationServiceImpl.saveResult(string, userServiceImpl.getUserById(1L));
+            return operationServiceImpl.getResult(string);
     }
     @GetMapping("/operation/test")
     public String read(){
