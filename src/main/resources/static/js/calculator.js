@@ -119,7 +119,7 @@ function equalsAction(){
     }
     if(!currentDisplay.includes(" ")) {
         // if current display has zero spaces, it means that we have ZERO OPERATORS - remember each operators gets added with spaces on both sides
-        alert("Invalid Expression - No Operators \nPlease update.");
+        alert("Invalid Expression\nPlease update.");
     }else{
         validExpression=true;
     }
