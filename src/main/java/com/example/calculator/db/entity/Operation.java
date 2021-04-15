@@ -11,7 +11,7 @@ public class Operation {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="operationString",nullable=false)
+    @Column(name="operationstring",nullable=false)
     private String operationString;
 
     @Column(name="result",nullable=false)
@@ -51,5 +51,12 @@ public class Operation {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Operation(){}
+    public Operation(String formula, String result, User user){
+        this.operationString=formula;
+        this.result=result;
+        this.user=user;
     }
 }
