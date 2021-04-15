@@ -84,7 +84,7 @@ public class OperatorMathUtils {
         }else{
             throw new Exception("Unknown operation exception");
         }
-
+        // the rest of the array
         for (int i = operatorPosition+2; i < formulaArray.length; i++) {
             arrayAfterCalculations[i-2]= formulaArray[i];
         }
@@ -109,20 +109,62 @@ public class OperatorMathUtils {
     }
 
 
-    public static String calculateResult(String formula){
+    private static Integer getAdditionOrSubtractionPosition(String[] formulaArray){
+        // This method will tell us if there are more multiplication/divisions and if so, at which position. If not, it returns -1
+        for (Integer i=0;i<formulaArray.length;i++) {
+            if(formulaArray[i].equals("+") || formulaArray[i].equals("-")){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private static String[] calculateAdditionOrSubtraction(String[] formulaArray, Integer operatorPosition) throws Exception {
+        // this method will execute a single multiplication or division in the array
+        int arrayLength = formulaArray.length;
+        String[] arrayAfterCalculations= new String[formulaArray.length-2];
+
+        // Same array until the number before the operator.
+        for (int i = 0; i < operatorPosition - 1; i++) {
+            arrayAfterCalculations[i] = formulaArray[i];
+        }
+        if(formulaArray[operatorPosition].equals("+")) {
+            arrayAfterCalculations[operatorPosition - 1] = add(formulaArray[operatorPosition-1],formulaArray[operatorPosition+1]);
+        }else if(formulaArray[operatorPosition].equals("-")) {
+            arrayAfterCalculations[operatorPosition - 1] = subtract(formulaArray[operatorPosition-1],formulaArray[operatorPosition+1]);
+        }else{
+            throw new Exception("Unknown Operation Exception");
+        }
+        // the rest of the array
+        for (int i = operatorPosition+2; i < formulaArray.length; i++) {
+            arrayAfterCalculations[i-2]= formulaArray[i];
+        }
+        return arrayAfterCalculations;
+    }
+
+    private static String[] calculateAllAdditionsAndSubtractions(String[] formulaArray){
+        // This method will do all calculations for multiplications and divisions
+
+        //FIRST CHECK TO SEE IF THERE IS A SINGLE OPERATION TO BE DONE
+        Integer operatorPosition = getAdditionOrSubtractionPosition(formulaArray);
+        while(operatorPosition!=-1){
+            try {
+                formulaArray = calculateAdditionOrSubtraction(formulaArray, operatorPosition);
+            }catch(Exception e){
+                System.err.println(e);
+            }
+            operatorPosition= getAdditionOrSubtractionPosition(formulaArray);
+        }
+        return formulaArray;
+
+    }
+
+    public static String calculateResult(String formula)  {
         String[] formulaArray = parseFormulaToStringArray(formula);
 
-        for (String string:formulaArray) {
-            System.out.println(string);
-        }
-        System.out.println("Now i will do the multiplications");
-
         formulaArray = calculateAllMultiplicationsAndDivisions(formulaArray);
+        formulaArray = calculateAllAdditionsAndSubtractions(formulaArray);
 
-        System.out.println("printing the new array");
-        for (String string:formulaArray) {
-            System.out.println(string);
-        }
-        return "0";
+        return formulaArray[0];
     }
 }
