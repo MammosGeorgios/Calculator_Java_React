@@ -1,6 +1,15 @@
 
 function setDisplay(text){
+    updateDisplayFont(text.length);
     $("#calculatorDisplay").html(text);
+}
+function updateDisplayFont(stringLength){
+    if(stringLength>17){
+        $("#calculatorDisplay").css("font-size","2.4rem");
+    }else{
+        $("#calculatorDisplay").css("font-size","4.8rem");
+
+    }
 }
 // a switch function to select appropriate action
 function buttonPress(button){
@@ -129,7 +138,7 @@ function equalsAction(){
 
 
         $.get( "http://localhost:8080/operation/'" + prepareStringForController(currentDisplay) + "'", function( data ) {
-            $("#calculatorDisplay").html( data );
+            setDisplay( data );
         });
 
 
