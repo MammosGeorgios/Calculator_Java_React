@@ -25,7 +25,7 @@ body{
     font-size:4.8rem;
 }
 #loginContainer{
-    float:left;
+    margin: auto;
     height:100%;
     width:25%;
 }

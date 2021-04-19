@@ -20,9 +20,13 @@
 <div id="header">
     <div id="headerIconContainer">PwC</div>
     <div id="headerText">Calculator App</div>
+    <div></div>
+</div>
+
+<div id="main">
     <div id="loginContainer">
         <div id="loginForm">
-            <form>
+            <form action="/calculator">
                 <div class="form-group row" id="loginFormUsername">
                     <label for="inputUsername" class="col-sm-4 col-form-label">Username:</label>
                     <div class="col-sm-8">
@@ -43,37 +47,6 @@
                 </div>
             </form>
         </div>
-    </div>
-</div>
-
-<div id="main">
-    <div class="col-md-4" id="adminContainer"></div>
-    <div class="col-md-4" id="calculatorContainer">
-        <div id="calculatorDisplay">0</div>
-        <div id="calculatorButtonsContainer">
-            <button class="calculatorButton" id="clearButton" onclick="buttonPress('clearButton')">C</button>
-            <button class="calculatorButton" id="divideButton" onclick="buttonPress('divideButton')">/</button>
-            <button class="calculatorButton" id="multiplyButton" onclick="buttonPress('multiplyButton')">*</button>
-            <button class="calculatorButton" id="subtractButton" onclick="buttonPress('subtractButton')">-</button>
-            <button class="calculatorButton" id="n7Button" onclick="buttonPress('7')">7</button>
-            <button class="calculatorButton" id="n8Button" onclick="buttonPress('8')">8</button>
-            <button class="calculatorButton" id="n9Button" onclick="buttonPress('9')">9</button>
-            <button class="calculatorButton" id="addButton" onclick="buttonPress('addButton')">+</button>
-            <button class="calculatorButton" id="n4Button" onclick="buttonPress('4')">4</button>
-            <button class="calculatorButton" id="n5Button" onclick="buttonPress('5')">5</button>
-            <button class="calculatorButton" id="n6Button" onclick="buttonPress('6')">6</button>
-            <button class="calculatorButton" id="n1Button" onclick="buttonPress('1')">1</button>
-            <button class="calculatorButton" id="n2Button" onclick="buttonPress('2')">2</button>
-            <button class="calculatorButton" id="n3Button" onclick="buttonPress('3')">3</button>
-            <button class="calculatorButton" id="equalsButton" onclick="buttonPress('equalsButton')">=</button>
-            <button class="calculatorButton" id="n0Button" onclick="buttonPress('0')">0</button>
-            <button class="calculatorButton" id="decimalButton" onclick="buttonPress('decimalButton')">.</button>
-
-        </div>
-    </div>
-    <div class="col-md-4" id="userContainer">
-        there should be things below this...
-
     </div>
 </div>
 <div id="footer">
