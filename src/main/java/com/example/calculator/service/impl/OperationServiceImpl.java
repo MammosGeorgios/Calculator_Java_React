@@ -51,4 +51,8 @@ public class OperationServiceImpl implements OperationService {
 
     }
 
+    public String convertToForwardSlashesFromUnderscore (String expression){
+        return expression.replace("_","/");
+    }
+
 }

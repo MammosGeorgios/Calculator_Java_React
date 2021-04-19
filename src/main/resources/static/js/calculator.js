@@ -128,12 +128,15 @@ function equalsAction(){
         //setDisplay("0"); //resetting for easier testing, later on we will have better functionality here
 
 
-        $.get( "http://localhost:8080/operation/'" + currentDisplay + "'", function( data ) {
+        $.get( "http://localhost:8080/operation/'" + prepareStringForController(currentDisplay) + "'", function( data ) {
             $("#calculatorDisplay").html( data );
         });
 
 
     }
+}
+function prepareStringForController(currentDisplay){
+    return currentDisplay.replace("/","_");
 }
 
 function containsSpace(string){

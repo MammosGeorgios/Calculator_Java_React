@@ -22,8 +22,9 @@ public class OperationRestController {
 
     @GetMapping("/operation/'{string}'")
     public String read(@PathVariable String string){
-        operationServiceImpl.saveResult(string, userServiceImpl.getUserById(1L));
-            return operationServiceImpl.getResult(string);
+        String correctedString = operationServiceImpl.convertToForwardSlashesFromUnderscore(string);
+        operationServiceImpl.saveResult(correctedString, userServiceImpl.getUserById(1L));
+            return operationServiceImpl.getResult(correctedString);
     }
     @GetMapping("/operation/test")
     public String read(){
