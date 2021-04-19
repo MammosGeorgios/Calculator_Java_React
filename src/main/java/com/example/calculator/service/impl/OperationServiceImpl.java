@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -41,6 +43,7 @@ public class OperationServiceImpl implements OperationService {
     @Override
     public List<OperationHistoryDTO> getUserHistory(Long id) {
         List<Operation> userOperationsHistory = operationRepository.getAllByUser(userRepository.getById(id));
+        Collections.reverse(userOperationsHistory); // reversing so that newest entries go on top
         List<OperationHistoryDTO> userOperationsHistoryDTO = new ArrayList<>();
 
         for(Operation entry:userOperationsHistory){

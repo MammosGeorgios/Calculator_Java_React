@@ -177,21 +177,14 @@ function decimalInputToDisplay(){
         setDisplay(currentDisplay +".");
     }
 }
-
-function loadHistory()
-{
-
-    // $.ajax({
-    //     type: 'get',
-    //     url: "/history/?id=1",
-    //
-    //     success: function(data){
-    //         $('#userContainer').html(data);
-    //     },
-    //
-    // })
+// LOADING HISTORY
+function loadHistory(){
     $('#userContainer').load('/history/?id=1 #historyContainer');
-
 }
 
 $.ready(loadHistory());
+
+// This will Refresh History every 2 seconds
+// setInterval(function(){
+//     $("#userContainer").load('/history/?id=1 #historyContainer')
+// }, 2000);

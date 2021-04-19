@@ -44,6 +44,8 @@ label{
 }
 #historyContainer{
     font-size:1.2rem;
+    max-height: 500px;
+    overflow-y:auto;
 }
 #historyContainer>div{
     text-align: left;
