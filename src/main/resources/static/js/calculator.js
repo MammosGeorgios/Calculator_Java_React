@@ -11,7 +11,7 @@ function updateDisplayFont(stringLength){
 
     }
 }
-// a switch function to select appropriate action
+// a switch function to select appropriate action/
 function buttonPress(button){
     switch (button) {
         case "clearButton":
