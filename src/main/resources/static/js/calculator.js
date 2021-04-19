@@ -164,7 +164,16 @@ function decimalInputToDisplay(){
     let currentDisplay = $("#calculatorDisplay").html();
     //NEED TO CHECK IF DISPLAY ALREADY HAS A DECIMAL POINTER AT THE END
     let hasPointer = currentDisplay.charAt(currentDisplay.length-1)==".";
-    if(hasPointer == false){
+
+    //IF There isn't a decimal pointer at the end, i want to make sure we aren't writing something like 3.333.333
+    let hasMultiplePointersInLastWord = true;
+    if (hasPointer==false) {
+        let currentDisplayArray = currentDisplay.split(" ");
+        // I will check the last "word" to see if it has any decimals;
+        hasMultiplePointersInLastWord = currentDisplayArray[currentDisplayArray.length-1].includes(".")
+    }
+
+    if(hasPointer == false && hasMultiplePointersInLastWord==false){
         setDisplay(currentDisplay +".");
     }
 }
