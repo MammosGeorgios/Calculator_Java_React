@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Calculator</title>
@@ -71,11 +71,9 @@
 
         </div>
     </div>
-    <div class="col-md-4" id="userContainer">
+    <div class="col-md-4" id="userContainer" th:include="fragments/history :: history">
         there should be things below this...
-<!--        <div th:class="testing class">-->
-<!--            test-->
-<!--        </div>-->
+        <div th:text="randomStringThatWorks"></div>
     </div>
 </div>
 <div id="footer">

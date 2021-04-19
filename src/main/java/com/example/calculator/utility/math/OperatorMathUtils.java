@@ -5,6 +5,7 @@ public class OperatorMathUtils {
     public static Double tryParseDouble(String string){
         Double number = 0.0;
         try{
+
             number = Double.parseDouble(string);
         }catch(NumberFormatException e){
             e.printStackTrace();

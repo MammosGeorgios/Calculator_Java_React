@@ -165,3 +165,21 @@ function decimalInputToDisplay(){
         setDisplay(currentDisplay +".");
     }
 }
+
+function loadHistory()
+{
+
+    // $.ajax({
+    //     type: 'get',
+    //     url: "/history/?id=1",
+    //
+    //     success: function(data){
+    //         $('#userContainer').html(data);
+    //     },
+    //
+    // })
+    $('#userContainer').load('/history/?id=1 #historyContainer');
+
+}
+
+$.ready(loadHistory());

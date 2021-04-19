@@ -1,6 +1,6 @@
 *{
     text-align:center;
-    font-size:62.5%;
+    /*font-size:62.5%;*/
 }
 body{
     /*background-color: #D04A02;*/
@@ -39,6 +39,21 @@ label{
     width:100%;
     border:black solid 2px;
 }
+#userContainer{
+    font-size:1.2rem;
+}
+#historyContainer{
+    font-size:1.2rem;
+}
+#historyContainer>div{
+    text-align: left;
+}
+/*.history-right{*/
+/*    text-align: right;*/
+/*}*/
+/*.history-left{*/
+/*    text-align: left;*/
+/*}*/
 #footer{
     position:fixed;
     left:0;
@@ -51,8 +66,9 @@ label{
 #calculatorContainer{
     height:500px;
     width:500px;
-    margin:auto;
-
+    /*margin:auto;*/
+    padding-left: 0;
+    padding-right: 0;
     border:red 1px solid;
 }
 #calculatorDisplay{
