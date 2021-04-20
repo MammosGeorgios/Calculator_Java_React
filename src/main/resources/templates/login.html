@@ -16,19 +16,16 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-<div id="header">
-    <div id="headerIconContainer">PwC</div>
-    <div id="headerText">Calculator App</div>
-    <div></div>
+<div th:if="${param.error}">
+    Invalid username and password.
 </div>
-
-<div> Hi
+<div th:if="${param.logout}">
+    You have been logged out.
 </div>
-<div id="footer">
-    Made by Mammos Georgios - 2021
-</div>
-
-<script type="text/javascript" src="./js/calculator.js"></script>
+<form th:action="@{/login}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+</form>
 </body>
 </html>

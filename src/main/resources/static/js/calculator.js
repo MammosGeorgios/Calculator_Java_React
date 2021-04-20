@@ -139,6 +139,7 @@ function equalsAction(){
 
         $.get( "http://localhost:8080/operation/'" + prepareStringForController(currentDisplay) + "'", function( data ) {
             setDisplay( data );
+            loadHistory();
         });
 
 
@@ -193,7 +194,7 @@ function loadHistory(){
 
 $.ready(loadHistory());
 
-// This will Refresh History every 2 seconds
+//This will Refresh History every 2 seconds
 // setInterval(function(){
 //     $("#userContainer").load('/history/?id=1 #historyContainer')
 // }, 2000);
