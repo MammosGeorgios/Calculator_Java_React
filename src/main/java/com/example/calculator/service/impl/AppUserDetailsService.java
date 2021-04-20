@@ -26,8 +26,8 @@ public class AppUserDetailsService implements UserDetailsService {
         if(user==null){
             throw new UsernameNotFoundException(username);
         }
-        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+//        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+//        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         return new MyUserPrincipal(user);
     }
 }

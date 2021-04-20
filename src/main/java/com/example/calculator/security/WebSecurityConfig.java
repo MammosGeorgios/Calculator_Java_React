@@ -63,10 +63,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return daoAuthenticationProvider;
     }
 
-    @Autowired
-    void configAuthentication(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(userDetailsService);
-    }
+//    @Autowired
+//    void configAuthentication(AuthenticationManagerBuilder auth) throws Exception{
+//        auth.userDetailsService(userDetailsService);
+//    }
 
 //    @Bean
 //    @Override

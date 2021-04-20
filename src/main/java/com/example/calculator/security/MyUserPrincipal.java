@@ -51,4 +51,8 @@ public class MyUserPrincipal implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public String getName(){
+        return this.user.getName();
+    }
 }
