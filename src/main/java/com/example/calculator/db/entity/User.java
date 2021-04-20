@@ -23,11 +23,15 @@ public class User {
     @Column(name="password",nullable = false)
     private String password;
 
-    @Column(name="role",nullable=false)
-    private String role;
+//    @Column(name="role",nullable=false)
+//    private String role;
 
     @OneToMany(mappedBy = "user")
     private Set<Operation> operations;
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserInRole> userInRoles;
+
 
     public String getName() {
         return name;
@@ -61,13 +65,13 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
+//    public String getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 
     public Set<Operation> getOperations() {
         return operations;
@@ -77,6 +81,11 @@ public class User {
         this.operations = operations;
     }
 
+    public Set<UserInRole> getUserInRoles() {
+        return userInRoles;
+    }
 
-
+    public void setUserInRoles(Set<UserInRole> userInRoles) {
+        this.userInRoles = userInRoles;
+    }
 }
