@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>Calculator</title>
@@ -21,7 +22,11 @@
     <div id="headerIconContainer">PwC</div>
     <div id="headerText">Calculator App</div>
     <div id="userInfoContainer">
-        Hello <span th:text="${username}">username</span>!!!
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input class="btn-danger" type="submit" value="Sign Out"/>
+        </form>
+
     </div>
 </div>
 
