@@ -44,6 +44,11 @@ public class MockPeopleWebController {
 
         // adding the form model
         model.addAttribute("mockPersonDTO", new MockPersonDTO());
+
+        // adding user roles
+        List<String> thisUserRoles = mockPersonServiceImpl.getUserRoles(2L);
+        model.addAttribute("mockUserRoles",thisUserRoles);
+
         return "mockpeople";
     }
 

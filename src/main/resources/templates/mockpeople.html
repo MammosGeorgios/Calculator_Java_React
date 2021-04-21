@@ -34,6 +34,11 @@
 <div th:if="${newPersonMessage!=null}"><span th:text="${newPersonMessage}">testing</span></div>
 <hr>
 
+The roles i got are:
+<div th:each="role:${mockUserRoles}">
+    <span th:text="${role}">role</span>
+</div>
+
 <a href="index.html">Back to index</a>
 </body>
 </html>
