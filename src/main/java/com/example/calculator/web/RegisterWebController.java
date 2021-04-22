@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ConcurrentModel;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,17 +32,21 @@ public class RegisterWebController {
     }
 
     @GetMapping()
-    public String getRegister(WebRequest request , Model model){
-        model.addAttribute("userDTO",new UserDTO());
+    public String getRegister(@ModelAttribute UserDTO userDTO , Model model){
+        model.addAttribute("userDTO",userDTO);
         return "register";
     }
 
     @PostMapping()
-    public String postRegister(@ModelAttribute @Valid UserDTO userDTO, Model model, Errors errors){
+    public String postRegister(@ModelAttribute @Valid UserDTO userDTO, BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+            return "register";
+        }
+
         this.registerService.newUser(userDTO);
 
-        model.addAttribute("message","it worked");
-        return ("register" );
+        return ("login" );
     }
 
 
