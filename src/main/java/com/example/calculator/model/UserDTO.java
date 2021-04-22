@@ -15,6 +15,8 @@ public class UserDTO {
     @NotEmpty(message = "Password must not be empty")
     @Length(min=6, message="Password must be at least 6 characters")
     private String password;
+
+
     private String matchingPassword;
 
     @NotNull
